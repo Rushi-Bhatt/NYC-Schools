@@ -6,7 +6,7 @@ To build and run the program, simply use xcodeproj file. No additonal setup requ
 
 ## Assumptions in requirement: 
 1) We are not allowed to make any changes in the BE structure of the endpoints [No Pagination and have to fetch the entire response at once]
-2) School and SATDetails objets are kept separate [even though the API should provide the SATDetails for a particular school id, rather than dumping the data of all schools] 
+2) **School** and **SATDetail** objets are kept separate [even though the API should provide the SATDetails for a particular school id, rather than dumping the data of all schools] 
 3) All the navigations are Push for details, and modal for quick actions. 
 4) If the schools are missing the SAT scores, we are displaying "N/A" in place.
 5) In the interest of time, Few UI specs are not implemented to exactly be production ready, and more focus has been given on architecting the app better 
@@ -22,9 +22,9 @@ To build and run the program, simply use xcodeproj file. No additonal setup requ
 * SecurityTableViewCell is reused with proper configurations in each screen 
 * SecurityManager instance is created to provide a generic security handling
 * SecurityService protocol is created, along with providing capablity to promote dependency injection, and LocalSecurityService is used as a concrete implemention 
-* Proper Localization is handled using scalable Helper classes, and 2 sample locales are added (FR and ES) 
+* Proper Localization is handled using scalable Helper classes (but respective localization is to be configured in project)
 * Generic reusable Extensions are provided to ease the coding process 
-* Removed Storyboards in order to promote programmtic UI
+* No Storyboards in order to promote programmtic UI
 * No third party dependency usage
 * Appropriate Unit tests are added for the viewModels and services 
 
@@ -39,8 +39,9 @@ struct Constant {
 }
 
 Usage: 
-```
+
 parentStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: Constants.parentStackViewLeadingMargin)
+
 ```
 
 * Better extensions to handle the NSLayoutConstraints code. (exp. pinEdges func on UIView that adds all 4 directional constraints)
