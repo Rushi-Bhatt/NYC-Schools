@@ -97,10 +97,10 @@ private extension SchoolOverviewCell {
         phoneButton.addTarget(self, action: #selector(onPhoneTap), for: .touchDown)
         
         NSLayoutConstraint.activate([
-            cardStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            cardStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            cardStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            cardStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
+            cardStackView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            cardStackView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 20),
+            cardStackView.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            cardStackView.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             contactStackView.widthAnchor.constraint(equalTo: cardStackView.widthAnchor),
         ])
     }

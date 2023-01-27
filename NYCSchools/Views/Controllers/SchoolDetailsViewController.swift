@@ -25,7 +25,6 @@ final class SchoolDetailsViewController: UIViewController {
         parentStackView.alignment = .leading
         parentStackView.isUserInteractionEnabled = true
         parentStackView.isLayoutMarginsRelativeArrangement = true
-        parentStackView.layoutMargins = .init(top: 20, left: 20, bottom: 20, right: 20)
         return parentStackView
     }()
     
@@ -152,11 +151,11 @@ private extension SchoolDetailsViewController {
             scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             
-            parentStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0),
-            parentStackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0),
-            parentStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0),
+            parentStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
+            parentStackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20),
+            parentStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
             parentStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 0),
-            parentStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: 0),
+            parentStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -40),
         ])
     }
     
