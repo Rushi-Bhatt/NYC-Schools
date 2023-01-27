@@ -1,0 +1,18 @@
+[
+    {
+        "dbn":"02M300",
+        "school_name":"URBAN ASSEMBLY SCHOOL OF DESIGN AND CONSTRUCTION, THE",
+        "num_of_sat_test_takers":"48",
+        "sat_critical_reading_avg_score":"404",
+        "sat_math_avg_score":"449",
+        "sat_writing_avg_score":"416"
+    },
+    {
+        "dbn":"02M303",
+        "school_name":"FACING HISTORY SCHOOL, THE",
+        "num_of_sat_test_takers":"76",
+        "sat_critical_reading_avg_score":"353",
+        "sat_math_avg_score":"358",
+        "sat_writing_avg_score":"340",
+    }
+]

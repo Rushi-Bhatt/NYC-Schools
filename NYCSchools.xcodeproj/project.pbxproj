@@ -17,6 +17,12 @@
 		D894D338297FCB5400FCD27C /* SchoolDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894D337297FCB5400FCD27C /* SchoolDetailsViewController.swift */; };
 		D894D33A297FD26200FCD27C /* SchoolDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894D339297FD26200FCD27C /* SchoolDetailsViewModel.swift */; };
 		D898DD3E298363DB009B583A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D898DD3D298363DB009B583A /* Localizable.strings */; };
+		D898DD4429837E65009B583A /* MockSchoolDetails.json in Resources */ = {isa = PBXBuildFile; fileRef = D898DD4029837E65009B583A /* MockSchoolDetails.json */; };
+		D898DD4529837E65009B583A /* MockSchools.json in Resources */ = {isa = PBXBuildFile; fileRef = D898DD4129837E65009B583A /* MockSchools.json */; };
+		D898DD4729837E65009B583A /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D898DD4329837E65009B583A /* TestUtils.swift */; };
+		D898DD4A2983819D009B583A /* SchoolDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D898DD492983819D009B583A /* SchoolDetailsViewModelTests.swift */; };
+		D898DD4D298382E7009B583A /* MockSchoolService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D898DD4C298382E7009B583A /* MockSchoolService.swift */; };
+		D898DD5029838382009B583A /* MockRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D898DD4F29838382009B583A /* MockRouter.swift */; };
 		D8B6F706297E37880040BDFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B6F705297E37880040BDFB /* AppDelegate.swift */; };
 		D8B6F70A297E37880040BDFB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B6F709297E37880040BDFB /* HomeViewController.swift */; };
 		D8B6F70F297E37900040BDFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8B6F70E297E37900040BDFB /* Assets.xcassets */; };
@@ -62,6 +68,12 @@
 		D894D337297FCB5400FCD27C /* SchoolDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDetailsViewController.swift; sourceTree = "<group>"; };
 		D894D339297FD26200FCD27C /* SchoolDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDetailsViewModel.swift; sourceTree = "<group>"; };
 		D898DD3D298363DB009B583A /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		D898DD4029837E65009B583A /* MockSchoolDetails.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockSchoolDetails.json; sourceTree = "<group>"; };
+		D898DD4129837E65009B583A /* MockSchools.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockSchools.json; sourceTree = "<group>"; };
+		D898DD4329837E65009B583A /* TestUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
+		D898DD492983819D009B583A /* SchoolDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDetailsViewModelTests.swift; sourceTree = "<group>"; };
+		D898DD4C298382E7009B583A /* MockSchoolService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSchoolService.swift; sourceTree = "<group>"; };
+		D898DD4F29838382009B583A /* MockRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRouter.swift; sourceTree = "<group>"; };
 		D8B6F702297E37880040BDFB /* NYCSchools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYCSchools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8B6F705297E37880040BDFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8B6F709297E37880040BDFB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +137,40 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		D898DD3F29837E65009B583A /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				D898DD4029837E65009B583A /* MockSchoolDetails.json */,
+				D898DD4129837E65009B583A /* MockSchools.json */,
+				D898DD4329837E65009B583A /* TestUtils.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		D898DD4829838155009B583A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D898DD492983819D009B583A /* SchoolDetailsViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D898DD4B298382D7009B583A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D898DD4C298382E7009B583A /* MockSchoolService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		D898DD4E29838373009B583A /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				D898DD4F29838382009B583A /* MockRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		D8B6F6F9297E37880040BDFB = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +211,10 @@
 		D8B6F71B297E37900040BDFB /* NYCSchoolsTests */ = {
 			isa = PBXGroup;
 			children = (
+				D898DD4E29838373009B583A /* Router */,
+				D898DD4B298382D7009B583A /* Service */,
+				D898DD4829838155009B583A /* ViewModel */,
+				D898DD3F29837E65009B583A /* Mock */,
 				D8B6F71C297E37900040BDFB /* NYCSchoolsTests.swift */,
 			);
 			path = NYCSchoolsTests;
@@ -393,6 +443,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D898DD4429837E65009B583A /* MockSchoolDetails.json in Resources */,
+				D898DD4529837E65009B583A /* MockSchools.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,7 +488,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D898DD5029838382009B583A /* MockRouter.swift in Sources */,
 				D8B6F71D297E37900040BDFB /* NYCSchoolsTests.swift in Sources */,
+				D898DD4D298382E7009B583A /* MockSchoolService.swift in Sources */,
+				D898DD4729837E65009B583A /* TestUtils.swift in Sources */,
+				D898DD4A2983819D009B583A /* SchoolDetailsViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

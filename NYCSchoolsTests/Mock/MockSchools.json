@@ -1,0 +1,32 @@
+[
+    {
+        "dbn":"02M300",
+        "school_name":"Urban Assembly School of Design and Construction, The",
+        "overview_paragraph":"The Urban Assembly School of Design and Construction (SDC) prepares students for college and beyond.",
+        "phone_number":"212-586-0981",
+        "school_email":"Matt.Willoughby@uasdc.org",
+        "website":"http://schools.nyc.gov/schoolportals/02/M300",
+        "total_students":"400",
+        "primary_address_line_1":"525 West 50th Street",
+        "city":"Manhattan",
+        "zip":"10019",
+        "state_code":"NY",
+        "latitude":"40.76547",
+        "longitude":"-73.9927"
+    },
+    {
+        "dbn":"02M303",
+        "school_name":"Facing History School, The",
+        "overview_paragraph":"Our school graduates lifelong learners who are leaders in their communities.",
+        "phone_number":"212-757-2680",
+        "school_email":"dana@facinghistoryschool.org",
+        "website":"www.facinghistoryschool.org",
+        "total_students":"409",
+        "primary_address_line_1":"525 West 50th Street",
+        "city":"Manhattan",
+        "zip":"10019",
+        "state_code":"NY",
+        "latitude":"40.76547",
+        "longitude":"-73.9927"
+    }
+]
