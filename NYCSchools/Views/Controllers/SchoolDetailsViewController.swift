@@ -20,9 +20,7 @@ final class SchoolDetailsViewController: UIViewController {
     
     private var parentStackView: VStackView = {
         let parentStackView = VStackView()
-        parentStackView.distribution = .fill
         parentStackView.spacing = 20
-        parentStackView.alignment = .leading
         parentStackView.isUserInteractionEnabled = true
         parentStackView.isLayoutMarginsRelativeArrangement = true
         return parentStackView
@@ -50,8 +48,8 @@ final class SchoolDetailsViewController: UIViewController {
     }()
     
     private var satScoreSection: VStackView = {
-        let contactStackView = VStackView()
-        return contactStackView
+        let satScoreSection = VStackView()
+        return satScoreSection
         
     }()
     
@@ -65,13 +63,16 @@ final class SchoolDetailsViewController: UIViewController {
         let overviewSectionBody = UITextView()
         overviewSectionBody.isEditable = false
         overviewSectionBody.isSelectable = false
+        overviewSectionBody.isScrollEnabled = false
+        overviewSectionBody.font = .systemFont(ofSize: 16.0)
+        overviewSectionBody.textColor = Color.darkBlue
         overviewSectionBody.translatesAutoresizingMaskIntoConstraints = false
         return overviewSectionBody
     }()
     
     private var overviewSection: VStackView = {
-        let contactStackView = VStackView()
-        return contactStackView
+        let overviewSection = VStackView()
+        return overviewSection
         
     }()
     
@@ -154,7 +155,7 @@ private extension SchoolDetailsViewController {
             parentStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
             parentStackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20),
             parentStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
-            parentStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 0),
+            parentStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -20),
             parentStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -40),
         ])
     }
@@ -166,7 +167,6 @@ private extension SchoolDetailsViewController {
         satScoreWriting.text = viewModel.satWritingLabel
         
         overviewSectionTitle.text = viewModel.overviewSectionTitle
-        print("Overview", viewModel.overView!)
         overviewSectionBody.text = viewModel.overView!
         
         contactSectionTitle.text = viewModel.contactSectionTitle

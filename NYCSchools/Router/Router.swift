@@ -54,9 +54,8 @@ final class Router: RouterProtocol {
     }
     
     func openPhoneNumber(phone: String) {
-        let phone = phone.filter { (Int(String($0))) != nil }
-        print(phone)
-        if let url = URL(string: "tel://\(String(describing: phone))"),
+        let phoneNumber = phone.filter { (Int(String($0))) != nil }
+        if let url = URL(string: "tel://\(String(describing: phoneNumber))"),
            UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         } else{

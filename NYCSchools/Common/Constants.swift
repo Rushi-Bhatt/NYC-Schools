@@ -10,8 +10,8 @@ import UIKit
 
 // TODO: Can be moved to a Foundation repo and used across different domains
 struct Color {
-    static let lightBlue: UIColor = UIColor(red: 214/255.0, green: 238/255.0, blue: 255/255.0, alpha: 1)
-    static let darkBlue: UIColor = UIColor(red: 1/255.0, green: 59/255.0, blue: 94/255.0, alpha: 1)
-    static let lightGreen: UIColor = UIColor(red: 215/255.0, green: 246/255.0, blue: 239/255.0, alpha: 1)
-    static let darkGreen: UIColor = UIColor(red: 22/255.0, green: 83/255.0, blue: 64/255.0, alpha: 1)
+    static let lightGreen: UIColor = UIColor(red: 128/255.0, green: 178/255.0, blue: 77/255.0, alpha: 1)
+    static let lightOrange: UIColor = UIColor(red: 255/255.0, green: 153/255.0, blue: 51/255.0, alpha: 1)
+    static let lightBlue: UIColor = UIColor(red: 102/255.0, green: 153/255.0, blue: 204/255.0, alpha: 1)
+    static let darkBlue: UIColor = UIColor(red: 0/255.0, green: 51/255.0, blue: 102/255.0, alpha: 1)
 }

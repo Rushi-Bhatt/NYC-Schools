@@ -20,9 +20,9 @@ class VStackView: UIStackView {
     }
     
     private func setup() {
-        distribution = .fillEqually
+        distribution = .fill
         axis = .vertical
-        alignment = .leading
+        alignment = .top
         translatesAutoresizingMaskIntoConstraints = false
     }
 }

@@ -22,9 +22,15 @@ final class Button: UIButton {
     private func setup() {
         setTitleColor(.black, for: .normal)
         titleLabel?.font = .systemFont(ofSize: 14.0)
-        layer.cornerRadius = 10
-        layer.masksToBounds = true
         backgroundColor = .secondarySystemBackground
         translatesAutoresizingMaskIntoConstraints = false
+        
+        // Shadow Color and Radius
+        layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        layer.shadowOpacity = 1.0
+        layer.shadowRadius = 0.0
+        layer.masksToBounds = false
+        layer.cornerRadius = 8.0
     }
 }

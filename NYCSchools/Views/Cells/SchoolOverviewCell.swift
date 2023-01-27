@@ -12,6 +12,8 @@ final class SchoolOverviewCell: UITableViewCell, CellIdentifiable {
     
     private var cardStackView: VStackView = {
         let cardStackView = VStackView()
+        cardStackView.alignment = .top
+        cardStackView.distribution = .fillEqually
         return cardStackView
     }()
     
@@ -32,11 +34,13 @@ final class SchoolOverviewCell: UITableViewCell, CellIdentifiable {
     
     private var phoneButton: Button = {
         let phoneButton = Button()
+        phoneButton.backgroundColor = Color.lightGreen
         return phoneButton
     }()
     
     private var websiteButton: Button = {
         let websiteButton = Button()
+        websiteButton.backgroundColor = Color.lightOrange
         return websiteButton
     }()
 
@@ -73,7 +77,7 @@ final class SchoolOverviewCell: UITableViewCell, CellIdentifiable {
 //MARK: Extension
 private extension SchoolOverviewCell {
     private func setupAppearance() {
-        contentView.backgroundColor = .systemFill
+        contentView.backgroundColor = Color.lightBlue
         contentView.layer.borderColor = .init(gray: 100, alpha: 1)
         contentView.layer.borderWidth = 2
         contentView.layer.cornerRadius = 15
@@ -97,6 +101,8 @@ private extension SchoolOverviewCell {
         phoneButton.addTarget(self, action: #selector(onPhoneTap), for: .touchDown)
         
         NSLayoutConstraint.activate([
+            titleLabel.widthAnchor.constraint(equalTo: cardStackView.widthAnchor),
+            addressLabel.widthAnchor.constraint(equalTo: cardStackView.widthAnchor),
             cardStackView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             cardStackView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 20),
             cardStackView.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -20),

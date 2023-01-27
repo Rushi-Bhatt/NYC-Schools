@@ -24,7 +24,7 @@ class BodyLabel: UILabel {
         numberOfLines = 0
         lineBreakMode = .byWordWrapping
         textAlignment = .natural
-        textColor = .systemGray
+        textColor = Color.darkBlue
         translatesAutoresizingMaskIntoConstraints = false
     }
 }
