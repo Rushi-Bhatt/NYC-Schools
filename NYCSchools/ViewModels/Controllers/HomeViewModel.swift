@@ -22,11 +22,14 @@ final class HomeViewModel: HomeViewModelProtocol {
     var schools: [School] = []
     var satDetails: [SchoolSATDetail] = []
     var schoolOverviewCellViewModels: [SchoolOverviewCellViewModel] = []
-
+    
     init(service: SchoolServiceProtocol, router: RouterProtocol) {
         self.service = service
         self.router = router
     }
+    
+    //TODO: Ideally these orchestration of multiple calls should happen at the repository level
+    //TODO: add ability to allow multiple error types, one for each service
     
     func reload(_ completion: @escaping (Result<Void, Error>) -> ()) {
         let dispatchGroup = DispatchGroup()
@@ -72,8 +75,8 @@ final class HomeViewModel: HomeViewModelProtocol {
     }
 }
 
+//MARK: Extension
 extension HomeViewModel {
-    
     private func makeCellViewModels() {
         schools.forEach { [weak self] in
             guard let self = self else { return }
@@ -82,5 +85,4 @@ extension HomeViewModel {
             schoolOverviewCellViewModels.append(schoolOverviewCellViewModel)
         }
     }
-    
 }

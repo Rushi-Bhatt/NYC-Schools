@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
+// TODO: Can be moved to a UI repo and used across different domains
 class BodyLabel: UILabel {
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -30,7 +30,6 @@ class BodyLabel: UILabel {
 }
 
 class SectionTitleLabel: UILabel {
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()

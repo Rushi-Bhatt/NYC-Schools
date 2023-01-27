@@ -7,8 +7,8 @@
 
 import Foundation
 
+//TODO: can further be split into smaller models 
 struct School: Codable {
-    
     let dbn: String
     let name: String
     let overview: String

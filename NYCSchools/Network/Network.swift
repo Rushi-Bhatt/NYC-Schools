@@ -7,13 +7,14 @@
 
 import Foundation
 
+//TODO: Can we moved into a Service/Nerwork repo, and used across domains
 protocol NetworkProtocol {
     func fetch<T>(from endpoint: String, completion: @escaping (Result<T, ServiceError>) -> ()) where T: Decodable
 }
 
 final class Network: NetworkProtocol {
     private let urlSession: URLSession
-    private let baseURL = "https://data.cityofnewyork.us/"
+    private let baseURL = "https://data.cityofnewyork.us/" //TODO: can be stored in a constant in Foundation repo
     
     init(_ underlyingSession: URLSession = URLSession.shared) {
         self.urlSession = underlyingSession

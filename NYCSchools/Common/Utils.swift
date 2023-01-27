@@ -28,10 +28,9 @@ func onMainQueue(after delay: DispatchTimeInterval? = nil,
 /// - Parameters:
 ///   - controller: controller on which the toast is to be presented, by default uses topmost VC
 ///   - message: message to display
-func showToast(controller: UIViewController? = topMostController(), message: String) {
-    //TODO: Use "message" param for more details regarding error code.
-    let alert = UIAlertController(title: nil,
-                                  message: LocalizationHelper.localize(key: "Alert.Error.Message"),
+func showToast(controller: UIViewController? = topMostController(), message: String?) {
+    let alert = UIAlertController(title: LocalizationHelper.localize(key: "Alert.Error.Title"),
+                                  message: message ?? LocalizationHelper.localize(key: "Alert.Error.Message"),
                                   preferredStyle: .alert)
     alert.addAction(UIAlertAction(title: LocalizationHelper.localize(key: "Alert.Error.Action.Dismiss"),
                                   style: .cancel,
@@ -46,8 +45,8 @@ func showToast(controller: UIViewController? = topMostController(), message: Str
 func topMostController() -> UIViewController? {
     guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }),
           let rootViewController = window.rootViewController else {
-              return nil
-          }
+        return nil
+    }
     
     var topController = rootViewController
     

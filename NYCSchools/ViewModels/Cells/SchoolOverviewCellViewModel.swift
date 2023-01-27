@@ -14,6 +14,10 @@ protocol SchoolOverviewCellViewModelProtocol {
     var websiteLabel: String? { get }
     var website: String? { get }
     var phoneNumber: String? { get }
+    
+    func configure(with model: School)
+    func navigateToWebsite()
+    func navigateToPhone()
 }
 
 final class SchoolOverviewCellViewModel: SchoolOverviewCellViewModelProtocol {
@@ -27,7 +31,6 @@ final class SchoolOverviewCellViewModel: SchoolOverviewCellViewModelProtocol {
     
     private let service: SchoolServiceProtocol
     private let router: RouterProtocol
-
     
     init(service: SchoolServiceProtocol, router: RouterProtocol) {
         self.service = service
@@ -36,9 +39,9 @@ final class SchoolOverviewCellViewModel: SchoolOverviewCellViewModelProtocol {
     
     func configure(with model: School) {
         titleLabel = model.name
-        addressLabel = "Address: \(model.address), \(model.city), \(model.state), \(model.zip)"
-        phoneNumberLabel = "Ph: \(model.phone)"
-        websiteLabel = "Visit Us"
+        addressLabel = LocalizationHelper.localize(key: "AddressLabel.text", params: model.address, model.city, model.state, model.zip)
+        phoneNumberLabel = LocalizationHelper.localize(key: "PhoneLabel.text", params: model.phone)
+        websiteLabel = LocalizationHelper.localize(key: "VisitUsLabel.text")
         website = model.website
         phoneNumber = model.phone
     }

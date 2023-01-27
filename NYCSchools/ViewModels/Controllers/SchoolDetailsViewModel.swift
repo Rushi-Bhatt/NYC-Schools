@@ -7,6 +7,7 @@
 
 import Foundation
 
+//TODO: we can separate each section in its own view model and views.
 protocol SchoolDetailsViewModelProtocol {
     var school: School { get }
     var satDetails: SchoolSATDetail? { get }
@@ -30,14 +31,20 @@ protocol SchoolDetailsViewModelProtocol {
 
 final class SchoolDetailsViewModel: SchoolDetailsViewModelProtocol {
     
+    var school: School
+    var satDetails: SchoolSATDetail?
+    
+    //MARK: SAT Section
     var satSectionTitle: String?
     var satMathLabel: String?
     var satReadingLabel: String?
     var satWritingLabel: String?
     
+    //MARK: Overview Section
     var overviewSectionTitle: String?
     var overView: String?
     
+    //MARK: Contact Section
     var contactSectionTitle: String?
     var addressLabel: String?
     var phoneLabel: String?
@@ -45,9 +52,6 @@ final class SchoolDetailsViewModel: SchoolDetailsViewModelProtocol {
     
     private let service: SchoolServiceProtocol
     private let router: RouterProtocol
-    
-    var school: School
-    var satDetails: SchoolSATDetail?
     
     init(school: School, satDetails: SchoolSATDetail?, service: SchoolServiceProtocol, router: RouterProtocol) {
         self.school = school
@@ -59,17 +63,17 @@ final class SchoolDetailsViewModel: SchoolDetailsViewModelProtocol {
     
     private func configureData() {
         satSectionTitle = school.name
-        satMathLabel = "SAT Average Math Score: \(satDetails?.satAvgMathScore ?? "N/A")"
-        satReadingLabel = "SAT Average Math Score: \(satDetails?.satAvgReadingScore ?? "N/A")"
-        satWritingLabel = "SAT Average Math Score: \(satDetails?.satAvgWritingScore ?? "N/A")"
+        satMathLabel = LocalizationHelper.localize(key: "SatMathScore.text", params: satDetails?.satAvgMathScore ?? "N/A")
+        satReadingLabel = LocalizationHelper.localize(key: "SatReadingScore.text", params: satDetails?.satAvgMathScore ?? "N/A")
+        satWritingLabel = LocalizationHelper.localize(key: "SatWritingScore.text", params: satDetails?.satAvgMathScore ?? "N/A")
         
-        overviewSectionTitle = "Overview"
+        overviewSectionTitle = LocalizationHelper.localize(key: "OverviewSection.title")
         overView = school.overview
         
-        contactSectionTitle = "Contact Us"
-        addressLabel = "Address: \(school.address), \(school.city), \(school.state), \(school.zip)"
-        phoneLabel =  "Phone: \(school.phone)"
-        websiteLabel = "Website: \(school.website)"
+        contactSectionTitle = LocalizationHelper.localize(key: "ContactSection.title")
+        addressLabel = LocalizationHelper.localize(key: "AddressLabel.text", params: school.address, school.city, school.state, school.zip)
+        phoneLabel =  LocalizationHelper.localize(key: "PhoneLabel.text", params: school.phone)
+        websiteLabel = LocalizationHelper.localize(key: "WebsiteLabel.text", params: school.website)
     }
 }
 

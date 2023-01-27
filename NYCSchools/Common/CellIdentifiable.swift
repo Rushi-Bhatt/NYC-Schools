@@ -7,6 +7,7 @@
 
 import Foundation
 
+// TODO: Can be moved to a Interfaces repo and used across different domains
 protocol CellIdentifiable {
     static var cellIdentifier: String { get }
 }

@@ -1,0 +1,24 @@
+/* 
+ Localizable.strings
+ NYCSchools
+ 
+ Created by Rushi Bhatt on 1/26/23.
+ 
+ */
+
+"HomeViewController.navigationBar.title" = "NYC Schools";
+"SchoolDetailsViewController.navigationBar.title" = "School Overview";
+"Alert.Error.Action.Dismiss" = "Dismiss";
+"Alert.Error.Title" = "Oops..!";
+"Alert.Error.Message" = "Something's wrong";
+"Alert.Error.Message.RealDevice" = "Please use real device to call %@";
+"AddressLabel.text" = "Address: %@, %@, %@ - %@";
+"PhoneLabel.text" = "Ph: %@";
+"WebsiteLabel.text" = "Website: %@";
+"VisitUsLabel.text" = "Visit Us";
+"SatMathScore.text" = "SAT Average Math Score: %@";
+"SatReadingScore.text" = "SAT Average Reading Score: %@";
+"SatWritingScore.text" = "SAT Average Writing Score: %@";
+"OverviewSection.title" = "Overview";
+"ContactSection.title" = "Contact Us";
+

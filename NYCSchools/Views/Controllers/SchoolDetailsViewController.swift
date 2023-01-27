@@ -20,9 +20,9 @@ final class SchoolDetailsViewController: UIViewController {
     
     private var parentStackView: VStackView = {
         let parentStackView = VStackView()
-        parentStackView.distribution = .equalSpacing
+        parentStackView.distribution = .fill
         parentStackView.spacing = 20
-        parentStackView.alignment = .fill
+        parentStackView.alignment = .leading
         parentStackView.isUserInteractionEnabled = true
         parentStackView.isLayoutMarginsRelativeArrangement = true
         parentStackView.layoutMargins = .init(top: 20, left: 20, bottom: 20, right: 20)
@@ -66,6 +66,7 @@ final class SchoolDetailsViewController: UIViewController {
         let overviewSectionBody = UITextView()
         overviewSectionBody.isEditable = false
         overviewSectionBody.isSelectable = false
+        overviewSectionBody.translatesAutoresizingMaskIntoConstraints = false
         return overviewSectionBody
     }()
     
@@ -106,7 +107,7 @@ final class SchoolDetailsViewController: UIViewController {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -118,13 +119,13 @@ final class SchoolDetailsViewController: UIViewController {
     }
 }
 
+//MARK: Extension
 private extension SchoolDetailsViewController {
-
     private func setupView() {
         view.backgroundColor = .systemBackground
-        navigationItem.title = "School Overview"
+        navigationItem.title = LocalizationHelper.localize(key: "SchoolDetailsViewController.navigationBar.title")
         navigationController?.navigationBar.prefersLargeTitles = true
-
+        
         [satScoreSectionTitle, satScoreMath, satScoreReading, satScoreWriting].forEach { satScoreSection.addArrangedSubview($0) }
         
         [overviewSectionTitle, overviewSectionBody].forEach { overviewSection.addArrangedSubview($0) }
@@ -136,7 +137,6 @@ private extension SchoolDetailsViewController {
         satScoreSection.setCustomSpacing(15, after: satScoreSectionTitle)
         overviewSection.setCustomSpacing(15, after: overviewSectionTitle)
         contactSection.setCustomSpacing(15, after: contactSectionTitle)
-        
         scrollView.addSubview(parentStackView)
         view.addSubview(scrollView)
         
@@ -158,8 +158,6 @@ private extension SchoolDetailsViewController {
             parentStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 0),
             parentStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: 0),
         ])
-        
-        
     }
     
     private func configureData() {
@@ -169,6 +167,7 @@ private extension SchoolDetailsViewController {
         satScoreWriting.text = viewModel.satWritingLabel
         
         overviewSectionTitle.text = viewModel.overviewSectionTitle
+        print("Overview", viewModel.overView!)
         overviewSectionBody.text = viewModel.overView!
         
         contactSectionTitle.text = viewModel.contactSectionTitle

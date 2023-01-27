@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
+// TODO: Can be moved to a UI repo and used across different domains
 class VStackView: UIStackView {
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -28,7 +28,6 @@ class VStackView: UIStackView {
 }
 
 class HStackView: UIStackView {
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()

@@ -61,7 +61,6 @@ final class SchoolOverviewCell: UITableViewCell, CellIdentifiable {
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
     }
     
-    
     func configure(with viewModel: SchoolOverviewCellViewModel) {
         self.viewModel = viewModel
         titleLabel.text = viewModel.titleLabel
@@ -71,8 +70,8 @@ final class SchoolOverviewCell: UITableViewCell, CellIdentifiable {
     }
 }
 
+//MARK: Extension
 private extension SchoolOverviewCell {
-
     private func setupAppearance() {
         contentView.backgroundColor = .systemFill
         contentView.layer.borderColor = .init(gray: 100, alpha: 1)
@@ -82,7 +81,6 @@ private extension SchoolOverviewCell {
     }
     
     private func setupView() {
-        
         setupAppearance()
         selectionStyle = .none
         contentView.addSubview(cardStackView)

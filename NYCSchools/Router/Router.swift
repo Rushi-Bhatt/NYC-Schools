@@ -9,6 +9,9 @@ import Foundation
 import UIKit
 import SafariServices
 
+//TODO: Can be moved into the Interface repo, and used across domains
+
+/// Generic Router Protocol, any navigation within the app should be faciliated via this protocol
 protocol RouterProtocol {
     func initiateRootViewController() -> UIViewController
     func navigateToDetailsViewController(school: School, satDetail: SchoolSATDetail?)
@@ -16,7 +19,7 @@ protocol RouterProtocol {
     func openPhoneNumber(phone: String)
 }
 
-class Router: RouterProtocol {
+final class Router: RouterProtocol {
     
     private var navigationController: UINavigationController
     private let schoolService: SchoolServiceProtocol
@@ -44,24 +47,20 @@ class Router: RouterProtocol {
     
     func openWebview(for url: String) {
         guard let viewController = topMostController() else { return }
-        let urlWithScheme = "https://\(url)" //TODO: Backend response should sent the URLs in proper format so we dont need to append schemes on client side. 
+        let urlWithScheme = "https://\(url)" //TODO: Backend response should sent the URLs in proper format so we dont need to append schemes on client side.
         guard let url = URL(string: urlWithScheme) else { return }
         let safariVC = SFSafariViewController(url: url)
         viewController.present(safariVC, animated: true, completion: nil)
     }
     
     func openPhoneNumber(phone: String) {
-        guard let viewController = topMostController() else { return }
         let phone = phone.filter { (Int(String($0))) != nil }
         print(phone)
         if let url = URL(string: "tel://\(String(describing: phone))"),
            UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         } else{
-            let alertView = UIAlertController(title: "Error!", message: "Please run on a real device to call \(phone)", preferredStyle: .alert)
-            let dismiss = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
-            alertView.addAction(dismiss)
-            viewController.present(alertView, animated: true, completion: nil)
+            showToast(message: LocalizationHelper.localize(key: "Alert.Error.Message.RealDevice", params: phone))
         }
     }
 }

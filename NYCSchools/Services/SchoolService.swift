@@ -7,6 +7,8 @@
 
 import Foundation
 
+//TODO: Can we moved into a Service/Nerwork repo, and used across domains
+
 /// Enum indicating various types of service error
 enum ServiceError: Error {
     case endpointError
@@ -16,6 +18,8 @@ enum ServiceError: Error {
     case decodingError
     case unknown
 }
+
+//TODO: ideal paths would have a proper format with path components and query parameters.
 
 /// Enum indicating all backend url routes
 enum ServiceURL {

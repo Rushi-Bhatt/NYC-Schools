@@ -8,7 +8,6 @@
 import Foundation
 
 struct SchoolSATDetail: Codable {
-    
     let dbn: String
     let name: String
     let totalSATTakers: String

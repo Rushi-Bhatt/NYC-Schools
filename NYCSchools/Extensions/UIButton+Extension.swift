@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-class Button: UIButton {
-    
+// TODO: Can be moved to a UI repo and used across different domains
+final class Button: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()

@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         return true
     }
-    
 }
 
+//TODO: Handle deep links and universal links in CanOpenURL handler
+//TODO: Here I have removed the sceneDelegate, but we can customize that as well to make the root window

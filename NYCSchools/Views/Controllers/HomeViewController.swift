@@ -16,7 +16,7 @@ final class HomeViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
         return refreshControl
     }()
-
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .systemBackground
@@ -30,7 +30,7 @@ final class HomeViewController: UIViewController {
         tableView.separatorStyle = .none
         return tableView
     }()
-
+    
     private lazy var activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
@@ -42,7 +42,7 @@ final class HomeViewController: UIViewController {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -60,35 +60,35 @@ final class HomeViewController: UIViewController {
                 self?.updateView(isLoading: false)
                 self?.tableView.reloadData()
                 if case .failure(let error) = result {
-                    self?.present(UIAlertController(title: nil, message: error.localizedDescription, preferredStyle: .alert), animated: true)
+                    showToast(controller: self, message: error.localizedDescription)
                 }
             }
         }
     }
 }
 
+//MARK: Extension
 private extension HomeViewController {
-
-    func setupView() {
+    private func setupView() {
         view.backgroundColor = .systemBackground
-        navigationItem.title = "NYC Schools"
+        navigationItem.title = LocalizationHelper.localize(key: "HomeViewController.navigationBar.title")
         navigationController?.navigationBar.prefersLargeTitles = true
-
+        
         view.addSubview(tableView)
         tableView.addSubview(activityIndicator)
-
+        
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-
+            
             activityIndicator.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
             activityIndicator.centerYAnchor.constraint(equalTo: tableView.centerYAnchor)
         ])
     }
-
-    func updateView(isLoading: Bool) {
+    
+    private func updateView(isLoading: Bool) {
         tableView.isUserInteractionEnabled = !isLoading
         activityIndicator.isHidden = !isLoading
         if isLoading {
@@ -98,21 +98,22 @@ private extension HomeViewController {
             refreshControl.endRefreshing()
         }
     }
-
-    @objc func refreshData(_ sender: Any) {
+    
+    @objc private func refreshData(_ sender: Any) {
         loadSchools()
     }
 }
 
+//MARK: UITableViewDataSource
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.schools.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard viewModel.schools.indices.contains(indexPath.row),
               let cell = tableView.dequeueReusableCell(withIdentifier: SchoolOverviewCell.cellIdentifier, for: indexPath) as? SchoolOverviewCell else { return UITableViewCell() }
-
+        
         let cellViewModel = viewModel.schoolOverviewCellViewModels[indexPath.row]
         cell.configure(with: cellViewModel)
         return cell
@@ -124,6 +125,7 @@ extension HomeViewController: UITableViewDataSource {
     
 }
 
+//MARK: UITableViewDelegate
 extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -16,6 +16,7 @@
 		D87F1A2B29827D1100D6C03B /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87F1A2A29827D1100D6C03B /* UIButton+Extension.swift */; };
 		D894D338297FCB5400FCD27C /* SchoolDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894D337297FCB5400FCD27C /* SchoolDetailsViewController.swift */; };
 		D894D33A297FD26200FCD27C /* SchoolDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894D339297FD26200FCD27C /* SchoolDetailsViewModel.swift */; };
+		D898DD3E298363DB009B583A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D898DD3D298363DB009B583A /* Localizable.strings */; };
 		D8B6F706297E37880040BDFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B6F705297E37880040BDFB /* AppDelegate.swift */; };
 		D8B6F70A297E37880040BDFB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B6F709297E37880040BDFB /* HomeViewController.swift */; };
 		D8B6F70F297E37900040BDFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8B6F70E297E37900040BDFB /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		D87F1A2A29827D1100D6C03B /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		D894D337297FCB5400FCD27C /* SchoolDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDetailsViewController.swift; sourceTree = "<group>"; };
 		D894D339297FD26200FCD27C /* SchoolDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDetailsViewModel.swift; sourceTree = "<group>"; };
+		D898DD3D298363DB009B583A /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		D8B6F702297E37880040BDFB /* NYCSchools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYCSchools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8B6F705297E37880040BDFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8B6F709297E37880040BDFB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 		D8B6F73A297E5E6A0040BDFB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D898DD3D298363DB009B583A /* Localizable.strings */,
 				D8B6F70E297E37900040BDFB /* Assets.xcassets */,
 				D8B6F710297E37900040BDFB /* LaunchScreen.storyboard */,
 			);
@@ -381,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8B6F712297E37900040BDFB /* LaunchScreen.storyboard in Resources */,
+				D898DD3E298363DB009B583A /* Localizable.strings in Resources */,
 				D8B6F70F297E37900040BDFB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
