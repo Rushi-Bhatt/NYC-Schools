@@ -64,8 +64,8 @@ final class SchoolDetailsViewModel: SchoolDetailsViewModelProtocol {
     private func configureData() {
         satSectionTitle = school.name
         satMathLabel = LocalizationHelper.localize(key: "SatMathScore.text", params: satDetails?.satAvgMathScore ?? "N/A")
-        satReadingLabel = LocalizationHelper.localize(key: "SatReadingScore.text", params: satDetails?.satAvgMathScore ?? "N/A")
-        satWritingLabel = LocalizationHelper.localize(key: "SatWritingScore.text", params: satDetails?.satAvgMathScore ?? "N/A")
+        satReadingLabel = LocalizationHelper.localize(key: "SatReadingScore.text", params: satDetails?.satAvgReadingScore ?? "N/A")
+        satWritingLabel = LocalizationHelper.localize(key: "SatWritingScore.text", params: satDetails?.satAvgWritingScore ?? "N/A")
         
         overviewSectionTitle = LocalizationHelper.localize(key: "OverviewSection.title")
         overView = school.overview
