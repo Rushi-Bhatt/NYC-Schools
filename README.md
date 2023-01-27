@@ -37,8 +37,9 @@ To build and run the program, simply use xcodeproj file. No additonal setup requ
 * No third party dependency usage.
 * Some Unit tests are added for the viewModels and services, although in the interest of time, most ommitted.
 
-## Further Improvements: 
+## Further Improvements:  
 * All required improvements are marked with TODO in the codebase 
+* SchoolDetailsViewController can be refactored to use UITableView, nested stackviews overcomplicate the design. All different sections can further be separated into their own views and viewModels.
 * All the constants used in constraints should be moved to a separate Constant struct within that class: 
 ```
 struct Constant {
@@ -65,3 +66,11 @@ titleLabel.pinEdges(to: contentView, edges: [.top(Constant.titleTopMargin), .bot
   * UI: All public reusable UI components like alert, toast and progress bar. 
   * And then all the domains can use above frameworks as a dependency to faciliate coding process. 
 * SwiftLint and Fastlane integration could benefit the developement process and enforce the coding guidelines 
+
+## Screenshots:
+<img src = "https://user-images.githubusercontent.com/21224635/215017484-6b98c0ae-3b7c-43e3-bfb3-c1e3c401dc4a.png" width = 300>
+<img src = "https://user-images.githubusercontent.com/21224635/215017522-055aa91f-1f18-4c6b-9660-83738d67f15f.png" width = 300>
+<img src = "https://user-images.githubusercontent.com/21224635/215017722-204666a3-d781-417a-9514-c51866573365.png" width = 300>
+<img src = "https://user-images.githubusercontent.com/21224635/215017747-9e94572b-81a8-4e22-bdd3-95b049603086.png" width = 300>
+<img src = "https://user-images.githubusercontent.com/21224635/215017754-e8e8cabc-6a89-40d6-b5c2-97bfccff76b1.png" width = 300>
+<img src = "https://user-images.githubusercontent.com/21224635/215017765-95ee01fe-f5ee-440f-a071-51d6f0d6b16a.png" width = 300>
