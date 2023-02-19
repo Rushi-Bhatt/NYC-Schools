@@ -44,7 +44,7 @@ final class SchoolOverviewCell: UITableViewCell, CellIdentifiable {
         return websiteButton
     }()
 
-    private var viewModel: SchoolOverviewCellViewModel?
+    private var viewModel: SchoolOverviewCellViewModelProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -65,7 +65,7 @@ final class SchoolOverviewCell: UITableViewCell, CellIdentifiable {
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
     }
     
-    func configure(with viewModel: SchoolOverviewCellViewModel) {
+    func configure(with viewModel: SchoolOverviewCellViewModelProtocol) {
         self.viewModel = viewModel
         titleLabel.text = viewModel.titleLabel
         addressLabel.text = viewModel.addressLabel

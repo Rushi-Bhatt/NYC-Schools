@@ -10,9 +10,10 @@ import Foundation
 protocol HomeViewModelProtocol {
     var schools: [School] { get }
     var satDetails: [SchoolSATDetail] { get }
-    var schoolOverviewCellViewModels: [SchoolOverviewCellViewModel] { get set }
+    var schoolOverviewCellViewModels: [SchoolOverviewCellViewModelProtocol] { get set }
     func reload(_ completion: @escaping (Result<Void, Error>) -> ())
     func navigateToDetailsViewController(for: Int)
+    func onSearch(searchText: String, completion: @escaping (Bool) -> ()) 
 }
 
 final class HomeViewModel: HomeViewModelProtocol {
@@ -21,7 +22,7 @@ final class HomeViewModel: HomeViewModelProtocol {
     private let router: RouterProtocol
     var schools: [School] = []
     var satDetails: [SchoolSATDetail] = []
-    var schoolOverviewCellViewModels: [SchoolOverviewCellViewModel] = []
+    var schoolOverviewCellViewModels: [SchoolOverviewCellViewModelProtocol] = []
     
     init(service: SchoolServiceProtocol, router: RouterProtocol) {
         self.service = service
@@ -41,7 +42,7 @@ final class HomeViewModel: HomeViewModelProtocol {
             switch result {
             case .success(let schools):
                 self?.schools = schools
-                self?.makeCellViewModels()
+                self?.makeCellViewModels(schools: schools)
                 dispatchGroup.leave()
             case .failure(let error):
                 serviceError = error
@@ -67,6 +68,15 @@ final class HomeViewModel: HomeViewModelProtocol {
         }
     }
     
+    func onSearch(searchText: String, completion: @escaping (Bool) -> ()) {
+        var filteredSchools = self.schools
+        if !searchText.isEmpty {
+            filteredSchools = schools.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+        }
+        makeCellViewModels(schools: filteredSchools)
+        completion(true)
+    }
+    
     func navigateToDetailsViewController(for index: Int) {
         let school = schools[index]
         let satDetail: SchoolSATDetail? = satDetails.filter { $0.dbn == school.dbn }.first
@@ -77,7 +87,8 @@ final class HomeViewModel: HomeViewModelProtocol {
 
 //MARK: Extension
 extension HomeViewModel {
-    private func makeCellViewModels() {
+    private func makeCellViewModels(schools: [School]) {
+        self.schoolOverviewCellViewModels = []
         schools.forEach { [weak self] in
             guard let self = self else { return }
             let schoolOverviewCellViewModel = SchoolOverviewCellViewModel(service: self.service, router: self.router)

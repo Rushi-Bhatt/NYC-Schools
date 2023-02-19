@@ -17,6 +17,15 @@ final class HomeViewController: UIViewController {
         return refreshControl
     }()
     
+    private lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.placeholder = "Search"
+        searchBar.delegate = self
+        searchBar.backgroundColor = .systemBackground
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        return searchBar
+    }()
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .systemBackground
@@ -74,12 +83,16 @@ private extension HomeViewController {
         navigationItem.title = LocalizationHelper.localize(key: "HomeViewController.navigationBar.title")
         navigationController?.navigationBar.prefersLargeTitles = true
         
+        view.addSubview(searchBar)
         view.addSubview(tableView)
         tableView.addSubview(activityIndicator)
         
         NSLayoutConstraint.activate([
+            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            searchBar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            searchBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             
@@ -107,11 +120,11 @@ private extension HomeViewController {
 //MARK: UITableViewDataSource
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.schools.count
+        viewModel.schoolOverviewCellViewModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard viewModel.schools.indices.contains(indexPath.row),
+        guard viewModel.schoolOverviewCellViewModels.indices.contains(indexPath.row),
               let cell = tableView.dequeueReusableCell(withIdentifier: SchoolOverviewCell.cellIdentifier, for: indexPath) as? SchoolOverviewCell else { return UITableViewCell() }
         
         let cellViewModel = viewModel.schoolOverviewCellViewModels[indexPath.row]
@@ -131,5 +144,18 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         viewModel.navigateToDetailsViewController(for: indexPath.row)
+    }
+}
+
+extension HomeViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("search text", searchText)
+        viewModel.onSearch(searchText: searchText) { [weak self] result in
+            if result {
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            }
+        }
     }
 }
